@@ -1,0 +1,4 @@
+testenv
+.env
+.hypothesis
+schemathesis_tests/__pycache__

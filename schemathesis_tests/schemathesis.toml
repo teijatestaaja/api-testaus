@@ -1,0 +1,12 @@
+# Mitkä sisäänrakennetut skeematarkastukset ovat käytössä testauksen aikana
+[checks]
+enabled = false
+
+# Tarkastetaan vain 5xx-palvelinvirheet, vastauksen tilakoodit ja vastauksen skeemanmukaisuus
+not_a_server_error.enabled = true
+status_code_conformance.enabled = true
+response_schema_conformance.enabled = true
+
+# Muut edelleen pois päältä, dokumentoidaan:
+content_type_conformance.enabled = false
+response_headers_conformance.enabled = false
