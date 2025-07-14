@@ -4,5 +4,4 @@ schema = schemathesis.openapi.from_url("https://petstore3.swagger.io/api/v3/open
 
 @schema.parametrize()
 def test_api(case):
-    response = case.call()
-    case.validate_response(response)
+    case.call_and_validate()

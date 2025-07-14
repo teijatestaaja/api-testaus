@@ -28,7 +28,7 @@ Tämä asentaa Schemathesis-työkalun sekä [pytest](https://docs.pytest.org/en/
 
 # Testien ajo
 
-Aja schemathesis_tests -kansiossa:
+Testit ajetaan schemathesis_tests -kansiosta. Aja kaikki testit:
 
 ```
 pytest test_api.py
