@@ -10,7 +10,7 @@ Schemathesis-työkalun dokumentaatiosivuilla on hyvä [tutoriaali](https://schem
 
 # Projektin asennus
 
-Tässä repossa on esimerkkiskripti, joka testaa [lemmikkieläinkaupan APIa](https://petstore3.swagger.io/) käyttäen Schemathesis-työkalua.
+Tässä repossa on esimerkkiskripti, joka testaa [lemmikkieläinkaupan APIa](https://petstore3.swagger.io/) käyttäen Schemathesis-työkalua, sekä laajentaa testejä erillisellä testikokoelmalla, jolla testataan ns. happy case scenario pytestillä. Tämä lähestymistapa sisältää siis sekä perinteisen esimerkkipohjaisen testauksen että ominaisuuksiin perustuvan fuzzingin edut.
 
 - Asenna [Python](https://www.python.org/).
 - Asenna ja aktivoi [Pythonin virtuaaliympäristö](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment) ajamalla tämän repon juuressa Windowsin Git Bashissa:
@@ -24,12 +24,16 @@ Asenna riippuvuudet:
 ```
 pip install -r requirements.txt
 ```
-Tämä asentaa Schemathesis-työkalun sekä [pytest](https://docs.pytest.org/en/stable/)-kirjaston.
+Tämä asentaa Schemathesis-työkalun, [pytest](https://docs.pytest.org/en/stable/)-kirjaston ja [request](https://requests.readthedocs.io/en/latest/)-kirjaston.
 
 # Testien ajo
+
+Testit:
+- parametrisoidut Schemathesis-testit (test_api.py)
+- testi, joka testaa lemmikin luontia (test_pet.py)
 
 Testit ajetaan schemathesis_tests -kansiosta. Aja kaikki testit:
 
 ```
-pytest test_api.py
+pytest test_api.py test_pet.py
 ```
