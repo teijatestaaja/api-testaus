@@ -1,1 +1,2 @@
 schemathesis==4.0.2
+allure-pytest>=2.14.3

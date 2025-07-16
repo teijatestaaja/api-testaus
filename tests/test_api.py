@@ -1,4 +1,6 @@
+import allure
 import schemathesis
+from schemathesis.hooks import HookContext
 
 schema = schemathesis.openapi.from_url("https://petstore3.swagger.io/api/v3/openapi.json")
 

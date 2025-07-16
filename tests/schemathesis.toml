@@ -1,3 +1,6 @@
+# Oletusasetukset
+continue-on-failure = true
+
 # Mitkä sisäänrakennetut skeematarkastukset ovat käytössä testauksen aikana
 [checks]
 enabled = false

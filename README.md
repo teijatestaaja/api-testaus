@@ -1,16 +1,16 @@
 # API-testaus
 
-Tämä projekti sisältää vinkkejä API-testaukseen erilaisilla työkaluilla.
+Tämä projekti sisältää vinkkejä API-testaukseen hyödyntäen seuraavia työkaluja ja kirjastoja:
+- [Schemathesis](https://schemathesis.github.io/schemathesis/)
+- [Hypothesis](https://github.com/HypothesisWorks/hypothesis)-kirjasto
+- [pytest](https://docs.pytest.org/en/stable/)-kirjasto
+- [request](https://requests.readthedocs.io/en/latest/)-kirjasto
+- [Allure](https://allurereport.org/), avoimen lähdekoodin testiraportointityökalu
 
-# Schemathesis
 
-[Schemathesis](https://schemathesis.readthedocs.io/en/stable/) on avoimen lähdekoodin testaus- ja validointityökalu, joka on suunniteltu API-rajapintojen testaamiseen [OpenAPI](https://www.openapis.org/)- ja [GraphQL](https://graphql.org/)-spesifikaatioiden pohjalta. Työkalu käyttää ns. property-based testing -lähestymistapaa, mikä tarkoittaa, että se generoi automaattisesti suuria määriä erilaisia testitapauksia spesifikaation määrittelemien sääntöjen mukaisesti, ja pyrkii näin löytämään virheitä API:n toiminnassa esimerkiksi erilaisten reunatapausten ja virhetilanteiden avulla. Schemathesis hyödyntää Pythonin [Hypothesis-kirjastoa](https://github.com/HypothesisWorks/hypothesis) ominaisuusperustaiseen testaukseen, ja se on helppo integroida CI/CD-putkiin, sillä se soveltuu jatkuvaan testaamiseen esim. GitHub Actionsissa.
+## Projektin asennus
 
-Schemathesis-työkalun dokumentaatiosivuilla on hyvä [tutoriaali](https://schemathesis.readthedocs.io/en/stable/tutorials/cli/), jonka avulla voit opiskella työkalun käyttöä komentoriviltä. Hieman edistyneempi [tutoriaali](https://schemathesis.readthedocs.io/en/stable/tutorials/pytest/) puolestaan näyttää, miten Schemathesis voidaan integroida [pytest-testauskirjastoon](https://docs.pytest.org/en/stable/).
-
-# Projektin asennus
-
-Tässä repossa on esimerkkiskripti, joka testaa [lemmikkieläinkaupan APIa](https://petstore3.swagger.io/) käyttäen Schemathesis-työkalua, sekä laajentaa testejä erillisellä testikokoelmalla, jolla testataan ns. happy case scenario pytestillä. Tämä lähestymistapa sisältää siis sekä perinteisen esimerkkipohjaisen testauksen että ominaisuuksiin perustuvan fuzzingin edut.
+Tässä repossa on esimerkkiskripti, joka testaa [lemmikkieläinkaupan APIa](https://petstore3.swagger.io/) käyttäen Schemathesis-työkalua, sekä laajentaa testejä pytestillä. Tämä lähestymistapa sisältää siis sekä perinteisen esimerkkipohjaisen testauksen että ominaisuuksiin perustuvan fuzzingin edut.
 
 - Asenna [Python](https://www.python.org/).
 - Asenna ja aktivoi [Pythonin virtuaaliympäristö](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment) ajamalla tämän repon juuressa Windowsin Git Bashissa:
@@ -24,16 +24,34 @@ Asenna riippuvuudet:
 ```
 pip install -r requirements.txt
 ```
-Tämä asentaa Schemathesis-työkalun, [pytest](https://docs.pytest.org/en/stable/)-kirjaston ja [request](https://requests.readthedocs.io/en/latest/)-kirjaston.
 
-# Testien ajo
+Asenna [Allure Report -komentorivityökalu](https://allurereport.org/docs/install/). Esimerkiksi, jos node.js on asennettuna:
+
+```
+npm install -g allure-commandline
+```
+
+Verifioi asennus:
+
+```
+allure --version
+```
+
+## Testien ajo
 
 Testit:
 - parametrisoidut Schemathesis-testit (test_api.py)
 - testi, joka testaa lemmikin luontia (test_pet.py)
 
-Testit ajetaan schemathesis_tests -kansiosta. Aja kaikki testit:
+Testit ajetaan tests -kansiosta. Aja kaikki testit ja tallenna tulokset JUnit XML-muodossa:
 
 ```
-pytest test_api.py test_pet.py
+pytest test_api.py test_pet.py --junit-xml=../allure-results/junit-results.xml
+```
+
+Generoi ja avaa raportti:
+
+```
+allure generate ../allure-results --clean -o ../allure-report
+allure open ../allure-report
 ```
