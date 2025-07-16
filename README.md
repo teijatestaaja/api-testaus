@@ -4,8 +4,8 @@ Tämä projekti sisältää vinkkejä API-testaukseen hyödyntäen seuraavia ty�
 - [Schemathesis](https://schemathesis.github.io/schemathesis/)
 - [Hypothesis](https://github.com/HypothesisWorks/hypothesis)-kirjasto
 - [pytest](https://docs.pytest.org/en/stable/)-kirjasto
-- [request](https://requests.readthedocs.io/en/latest/)-kirjasto
-- [Allure](https://allurereport.org/), avoimen lähdekoodin testiraportointityökalu
+- [requests](https://requests.readthedocs.io/en/latest/)-kirjasto
+- [Allure Report](https://allurereport.org/), avoimen lähdekoodin testiraportointityökalu
 
 
 ## Projektin asennus

@@ -1,6 +1,6 @@
 testenv
 .env
 .hypothesis
-schemathesis_tests/__pycache__
+tests/__pycache__
 allure-results
 allure-report
