@@ -1,6 +1,6 @@
 # API-testaus
 
-Tämä projekti sisältää vinkkejä API-testaukseen hyödyntäen seuraavia työkaluja ja kirjastoja:
+Tämä projekti sisältää esimerkkejä API-testaukseen hyödyntäen seuraavia työkaluja ja kirjastoja:
 - [Schemathesis](https://schemathesis.github.io/schemathesis/)
 - [Hypothesis](https://github.com/HypothesisWorks/hypothesis)-kirjasto
 - [pytest](https://docs.pytest.org/en/stable/)-kirjasto
@@ -55,3 +55,6 @@ Generoi ja avaa raportti:
 allure generate ../allure-results --clean -o ../allure-report
 allure open ../allure-report
 ```
+
+## Opi lisää
+- Lyhyt videotutoriaali [PyTest REST API Integration Testing with Python](https://www.youtube.com/watch?v=7dgQRVqF1N0)
