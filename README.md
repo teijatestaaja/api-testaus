@@ -58,3 +58,4 @@ allure open ../allure-report
 
 ## Opi lisää
 - Lyhyt videotutoriaali [PyTest REST API Integration Testing with Python](https://www.youtube.com/watch?v=7dgQRVqF1N0)
+- [HTTP statuskoodien selitys](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
