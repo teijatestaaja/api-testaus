@@ -46,7 +46,7 @@ Testit:
 Testit ajetaan tests -kansiosta. Aja kaikki testit ja tallenna tulokset JUnit XML-muodossa:
 
 ```
-pytest test_api.py test_pet.py --junit-xml=../allure-results/junit-results.xml
+pytest -s -v test_api.py test_pet.py --junit-xml=../allure-results/junit-results.xml
 ```
 
 Generoi ja avaa raportti:
